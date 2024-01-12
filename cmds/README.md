@@ -2,7 +2,10 @@
 
 cmd.py is a Python script that provides quick access to 42 pentesting commands for enumeration, exploitation, and privilege escalation.
 
-# credit and license
+## Usage
+`python3 cmd.py <target_ip>`
+
+## credit and license
 Copyright (c) 2024 suffs811
 
 https://github.com/suffs811
