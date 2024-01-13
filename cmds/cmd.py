@@ -15,7 +15,8 @@ ip = args.target_ip
 
 cmds = [
 	"########## ENUMERATION ##########",
-	f"*** scan ports/services ***\nnmap -vv -sC -sV -O -oN {ip}.nmap -p- {ip}",
+	f"*** scan for open ports ***\nnmap -vv -sS -Pn -oN {ip}.nmap -p- {ip}",
+	f"*** get service info and vulns on ports ***\nnmap -vv -sC -sV --script=vuln -p <port,port> {ip}",
 	f"*** enumerate smb shares ***\nenum4linux -a {ip}",
 	f"*** enumerate web subdomains ***\nsublist3r -d {ip}",
 	f"*** enumerate web server ***\nnikto -h {ip}",
