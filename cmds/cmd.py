@@ -19,7 +19,7 @@ cmds = [
 	f"*** enumerate smb shares ***\nenum4linux -a {ip}",
 	f"*** enumerate web subdomains ***\nsublist3r -d {ip}",
 	f"*** enumerate web server ***\nnikto -h {ip}",
-	f"*** find web directories ***\ngobuster dir -u {ip} -w /usr/share/wordlists/dirb/common.txt",
+	f"*** find web directories ***\ngobuster dir -u {ip} -w /usr/share/wordlists/dirbuster/directory-list-1.0.txt",
 	f"*** get domain info ***\nwhatweb {IP}",
 	f"*** send 1 packet to port 80 ***\nhping3 –A –p80 –c1 {ip}",
 	f"*** create password list from webpage ***\ncewl -d 1 -m 5 wordlist.txt {ip}",
