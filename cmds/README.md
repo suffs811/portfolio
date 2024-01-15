@@ -5,6 +5,10 @@ cmd.py is a Python script that provides quick access to 42 pentesting commands f
 ## Usage
 `python3 cmd.py <target_ip>`
 
+### TO DO
+- commands without comments
+- add windows cmds and from pjpt notes
+
 ## credit and license
 Copyright (c) 2024 suffs811
 
