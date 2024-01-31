@@ -1,6 +1,6 @@
 # cmd.py
 
-cmd.py is a Python script that provides quick access to 42 pentesting commands for enumeration, exploitation, and privilege escalation.
+cmd.py is a Python script that provides quick access to 46 pentesting commands for enumeration, exploitation, and privilege escalation.
 
 ## Usage
 `python3 cmd.py <target_ip>`
