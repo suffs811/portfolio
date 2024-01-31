@@ -21,6 +21,7 @@ cmds = [
 	f"*** enumerate dns ***\ndig srv _ldap._tcp.dc._msdcs.<DOMAIN> @{ip}",
 	f"*** enumerate smb shares ***\nenum4linux -a {ip}",
 	f"*** enumerate web subdomains ***\nsublist3r -d {ip}",
+	f"*** enumerate web subdomains ***\nffuf -u http://domain.com -w /directory-list.txt -H 'Host:FUZZ.domain.com' -c -fw 125",
 	f"*** enumerate web server ***\nnikto -h {ip}",
 	f"*** find web directories ***\ngobuster dir -u {ip} -w /usr/share/wordlists/dirbuster/directory-list-1.0.txt",
 	f"*** get domain info ***\nwhatweb {ip}",
